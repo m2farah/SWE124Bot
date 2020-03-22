@@ -17,14 +17,14 @@ bot.on('message', (msg) => {
   
   // Bot is under construction
   if (msg.chat.type.toString().includes("private")){
-    bot.sendMessage(msg.chat.id, "Sorry, but the bot is currently under construction !")
+    bot.sendMessage(msg.chat.id, "🏗🏗🚧 Sorry, but this functionality is coming soon !")
   }
 
   // Greeting every new member
   if (msg.chat.type.toString().includes("group")){
     const msgToReplyId = msg.message_id
     for (i in msg.new_chat_members){
-      bot.sendMessage(msg.chat.id,"Welcome to "+msg.new_chat_members[i].first_name+" (@"+msg.new_chat_members[i].username+")!",{"reply_to_message_id": `${msgToReplyId}`});
+      bot.sendMessage(msg.chat.id,"🎊🎉🎊 Welcome "+msg.new_chat_members[i].first_name+" (@"+msg.new_chat_members[i].username+")!",{"reply_to_message_id": `${msgToReplyId}`});
     }
   }
       
