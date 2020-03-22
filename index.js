@@ -16,12 +16,12 @@ const bot = new TelegramBot(token, {polling: true});
 bot.on('message', (msg) => {
   
   // Bot is under construction
-  if (msg.chat.type.toString().toLowerCase().includes("private")){
+  if (msg.chat.type.toString().includes("private")){
     bot.sendMessage(msg.chat.id, "Sorry, but the bot is currently under construction !")
   }
-  
+
   // Greeting every new member
-  if (msg.chat.type.toString().toLowerCase().includes("group")){
+  if (msg.chat.type.toString().includes("group")){
     const msgToReplyId = msg.message_id
     for (i in msg.new_chat_members){
       bot.sendMessage(msg.chat.id,"Welcome to "+msg.new_chat_members[i].first_name+" (@"+msg.new_chat_members[i].username+")!",{"reply_to_message_id": `${msgToReplyId}`});
